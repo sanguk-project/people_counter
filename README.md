@@ -2,16 +2,7 @@
 
 이 프로젝트는 YOLOv5/YOLOv8과 TensorRT를 활용한 실시간 통행량 계수 시스템입니다.
 
-## 🔄 **[2024년 3월 업데이트]** 프로젝트 구조 리팩토링 완료
-
-기존의 복잡하고 중복이 많았던 폴더 구조를 깔끔하게 정리했습니다.
-
-### ✅ **완료된 정리 작업**
-- **Legacy 폴더 통합**: `main/code/legacy/` 폴더의 모든 내용을 새로운 구조로 이동 후 삭제
-- **코드 모듈화**: 공통 코드를 `common/` 디렉토리로 통합
-- **Git 설정 최적화**: 모델 파일, 설정 파일, 결과 파일을 .gitignore에 추가
-
-## 📁 **새로운 프로젝트 구조**
+## 📁 **프로젝트 구조**
 
 ```
 people_counter/
@@ -52,14 +43,6 @@ people_counter/
 ├── docs/                            # 기술 문서
 └── README.md                        # 이 파일
 ```
-
-## 🎯 **Git 관리 최적화**
-
-다음 폴더들은 .gitignore에 추가되어 Git에 업로드되지 않습니다:
-- `main/code/config/` - 설정 파일들
-- `main/code/models/` - 대용량 모델 파일들
-- `main/code/apps/*/results/` - 실행 결과 파일들
-- `main/code/apps/*/models/` - 개별 앱의 모델 파일들
 
 ## 🚀 **주요 기능**
 
@@ -132,13 +115,6 @@ people_counter/
 - **Quantization Aware Training(QAT)**: 모델 학습 과정에서 양자화를 포함
 
 ## 🔄 **마이그레이션 가이드**
-
-### 기존 코드 수정 시 체크리스트
-
-- [ ] Import 경로 수정 (`from common.` 사용)
-- [ ] 설정 파일 경로 수정 (`config/settings.yaml`)
-- [ ] 모델 파일 경로 수정 (`models/` 하위)
-- [ ] 출력 파일 경로 확인
 
 ### 권장 작업 순서
 
