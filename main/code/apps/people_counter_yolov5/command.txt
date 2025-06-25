@@ -1,0 +1,16 @@
+- yolov5 train.py
+python train.py --weights yolov5m.pt --cfg models/yolov5m.yaml --data data/person.yaml --imgsz 512 --epochs 20 --name people_head_yolov5m_512 --patience 2
+python -m torch.distributed.run --nproc_per_node 2 train.py --weights yolov5s.pt --cfg models/yolov5s.yaml --batch 16 --data data/plate_char.yaml --imgsz 512 --epochs 3000 --name plate_512 --device 0,1
+
+
+- yolov5 export.py
+python export.py --data data/coco.yaml --weights crowdhuman_yolov5m.pt --imgsz 512 --batch-size 1 --include onnx
+python export.py --data data/person.yaml --weights runs/train/person_yolov5n_512/weights/best_512.pt --imgsz 512 --include onnx
+python export.py --weights yolov8s_people_counter.pt --imgsz 512 --include onnx
+python export.py --data data/person.yaml --weights test_512m.pt --imgsz 512 --include onnx
+
+
+- yolov5 detect.py
+python detect.py --weights runs/train/person_yolov5n_512/weights/best_512.pt --source ../source/imgs/221014_01348.jpg --imgsz 512 --device 0 --view-img --name person_yolov5n_512
+
+python detect.py --weights test_512m.pt --source data/images/KakaoTalk_20230914_152718739.jpg --imgsz 512 --device 0 --view-img --hide-conf --name test

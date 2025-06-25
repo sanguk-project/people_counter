@@ -1,0 +1,126 @@
+# Pre-trained AI to ONNX by using export.py of yolov5
+# python export.py --data data/person.yaml --weights runs/train/person_yolov5n/weights/best.pt --imgsz 416 --batch-size 8 --device 0 --half --verbose --iou-thres 0.5 --conf-thres 0.5 --include onnx 
+
+# Video & image path
+video_source: ../source/video/test1.mp4
+video_output : ./results/best_512_XavierNX_INT8_people_counting_test1.mp4
+
+image_source: ../source/imgs/bus.jpg
+image_output: ./results/output.jpg
+
+# ONNX model path
+onnx_model: ./results/best_512.onnx
+onnx_graph_file: ./results/print_graph_best_512.txt
+
+# TensorRT engine path
+tensorrt_engine: ./results/best_512_XavierNX_INT8.engine
+
+# People Counting Result info
+result_info: ./results/XavierNX_INT8_results_test1.txt
+
+# Cache file path
+cache_file: ./results/calibration.cache
+
+# Dataset path (Please modify this path according to your environment)
+dataset: ./datasets/int8
+
+# Video parameters
+original_video_width: 1920
+original_video_height: 1080
+
+# NMS
+conf_thres_nms: 0.7
+iou_thres_nms: 0.7
+
+# Bounding Box
+conf_thres_bbox: 0.7
+
+# image size
+img_size: 512
+
+# CentroidTracker parameters
+maxDisappeared: 60 #frame
+maxDistance: 300 # pixel
+
+# Class
+names:
+  0: person
+  1: bicycle
+  2: car
+  3: motorcycle
+  4: airplane
+  5: bus
+  6: train
+  7: truck
+  8: boat
+  9: traffic light
+  10: fire hydrant
+  11: stop sign
+  12: parking meter
+  13: bench
+  14: bird
+  15: cat
+  16: dog
+  17: horse
+  18: sheep
+  19: cow
+  20: elephant
+  21: bear
+  22: zebra
+  23: giraffe
+  24: backpack
+  25: umbrella
+  26: handbag
+  27: tie
+  28: suitcase
+  29: frisbee
+  30: skis
+  31: snowboard
+  32: sports ball
+  33: kite
+  34: baseball bat
+  35: baseball glove
+  36: skateboard
+  37: surfboard
+  38: tennis racket
+  39: bottle
+  40: wine glass
+  41: cup
+  42: fork
+  43: knife
+  44: spoon
+  45: bowl
+  46: banana
+  47: apple
+  48: sandwich
+  49: orange
+  50: broccoli
+  51: carrot
+  52: hot dog
+  53: pizza
+  54: donut
+  55: cake
+  56: chair
+  57: couch
+  58: potted plant
+  59: bed
+  60: dining table
+  61: toilet
+  62: tv
+  63: laptop
+  64: mouse
+  65: remote
+  66: keyboard
+  67: cell phone
+  68: microwave
+  69: oven
+  70: toaster
+  71: sink
+  72: refrigerator
+  73: book
+  74: clock
+  75: vase
+  76: scissors
+  77: teddy bear
+  78: hair drier
+  79: toothbrush
