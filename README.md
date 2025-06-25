@@ -1,4 +1,4 @@
-# People Counter using YOLOv5/YOLOv8
+# People Counter
 
 이 프로젝트는 YOLOv5/YOLOv8과 TensorRT를 활용한 실시간 통행량 계수 시스템입니다.
 
